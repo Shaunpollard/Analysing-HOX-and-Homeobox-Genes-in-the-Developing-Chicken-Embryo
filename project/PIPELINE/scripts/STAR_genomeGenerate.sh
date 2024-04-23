@@ -1,3 +1,5 @@
+#!/bin/bash
+
 STAR --runMode genomeGenerate \
      --runThreadN 5 \
      --genomeDir galGal6_STAR_Index \
@@ -5,5 +7,5 @@ STAR --runMode genomeGenerate \
      --sjdbGTFfile galGal6.ncbiRefSeq.gtf \
      `#--genomeFastaFiles <(zcat galGal6.fa.gz)` \
      `#--sjdbGTFfile <(zcat galGal6.ncbiRefSeq.gtf.gz)` \
-     --sjdbOverhang 99 \
-     `#--genomeSAindexNbases 10`
+     --sjdbOverhang 149 \
+     --genomeSAindexNbases 13
