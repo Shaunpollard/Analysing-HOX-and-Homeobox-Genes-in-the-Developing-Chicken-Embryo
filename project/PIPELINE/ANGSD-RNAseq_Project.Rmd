@@ -7,13 +7,19 @@ output:
     code_folding: show
     theme: cosmo
     toc: true
-    toc_depth: 2
+    toc_depth: 6
     toc_float: true
 editor_options: 
   chunk_output_type: console
 ---
 
 ## Introduction
+
+Welcome to my 2024 Advanced Next Generation Sequencing Data project. In this study, I investigate changes in the transcriptome of the chicken retina and cornea.
+
+The retina and cornea are vital components of avian vision, influencing how chickens perceive their surroundings. Understanding the genetic mechanisms underlying their development and function is crucial for various fields, including developmental biology, ophthalmology, and evolutionary genetics.
+
+Using advanced sequencing techniques, I analyze the gene expression patterns in these ocular tissues to uncover the genetic factors shaping their development and maintenance. By examining the chicken genome, I aim to elucidate the molecular processes driving the formation and function of the avian visual system. 
 
 ## Question of interest
 
@@ -112,7 +118,7 @@ multiqc *_fastqc.zip
 
 ```
 
-<iframe src="./Fastqc/multiqc_report_fastqc.pdf" width="100%" height="600"></iframe>
+<iframe src="./multiqc_report_1.html" width="100%" height="600"></iframe>
 
 The `multiQC` report indicates low adapter content across all my samples. Therefore, I made the decision not to trim my reads.
 
@@ -306,7 +312,7 @@ wait
 
 
 ```{r, out.width="100%"}
-#knitr::include_graphics("./E16_retina_rep1.report.pdf")
+knitr::include_graphics("./E16_retina_rep1.report.pdf")
 ```
 
 I also executed `multiQC` on my *final.out* files to generate a report detailing the mapping status of my reads, including information on mapped, unmapped, and multimapped reads, among others.
@@ -1129,7 +1135,7 @@ plotCounts(dds, gene = "DLX6", intgroup = "condition",
 
 According to Zagozewski et al. (2014), the exact roles of DLX5 and DLX6 in retinogenesis remain unclear, but their unexpected upregulation underscores the complexity of the regulatory network of Homeobox genes.
 
-Another paper entitled [A Transcriptomic Analysis of Differential Gene Expression during Chick Periocular Neural Crest Differentiation into Corneal Cells](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6746171/#:~:text=DLX6%2C%20ZIC3/4)%2C%20ADAM11%20was%20upregulated%20during%20corneal,the%20molecular%20signature%20of%20NCC%20is%20maintained), reports that DLX6...was upregulated during corneal development. These results indicate that the molecular signature of NCC is maintained in the periocular region, and partially during early corneal development.
+Another paper entitled, "A Transcriptomic Analysis of Differential Gene Expression during Chick Periocular Neural Crest Differentiation into Corneal Cells", reports that DLX6...was upregulated during corneal development. These results indicate that the molecular signature of NCC is maintained in the periocular region, and partially during early corneal development.
 
 
 
@@ -1278,6 +1284,7 @@ dotplot(ego, title = "GO Enrichment Analysis - E16 vs. E8 (MF)") + ggplot2::them
 #           file = "./E16vE8_MF_GO_terms.csv",
 #           row.names = FALSE)
 ```
+
 (Figure 23) Volcano plot showing the differentially expressed genes (DEGs) between embryonic day 16 (E16) and embryonic day 8 (E8), with log2FoldChange and adjusted p-value (padj).
 
 Considering the molecular function (MF), some of the GO terms that were most prevalent were signaling receptor activity, molecular transducer activity, transmembrane signaling receptor activity, and channel activity. These terms suggest potential roles for these genes in cellular signaling, sensory perception, and ion transport, which could be relevant to the developmental differences between E16 and E8.
@@ -1353,6 +1360,7 @@ dotplot(ego, title = "GO Enrichment Analysis - E18 vs. E8 (MF)") + ggplot2::them
 #           file = "./E18vE8_MF_GO_terms.csv",
 #           row.names = FALSE)
 ```
+
 (Figure 26) Volcano plot showing the differentially expressed genes (DEGs) between embryonic day 18 (E18) and embryonic day 8 (E8), with log2FoldChange and adjusted p-value (padj)."
 
 Considering the molecular function (MF), some of the GO terms that were most prevalent were signaling receptor activity, molecular transducer activity, transmembrane signaling receptor activity, and channel activity. These terms suggest potential roles for these genes in cellular signaling, sensory perception, and ion transport, which could be relevant to the developmental differences between E18 and E8.
@@ -1399,6 +1407,7 @@ dotplot(ego, title = "GO Enrichment Analysis - E18 vs. E8 (BP)") + ggplot2::them
 #           file = "./E18vE8_BP_GO_terms.csv",
 #           row.names = FALSE)
 ```
+
 (Figure 28) Volcano plot showing the differentially expressed genes (DEGs) between embryonic day 18 (E18) and embryonic day 8 (E8), with log2FoldChange and adjusted p-value (padj). 
  
 Considering the biological processes (BP), the GO terms that were most prevalent were multicellular organism development, system development, anatomical structure morphogenesis, nervous system development, regulation of cell population proliferation, etc. These terms suggest potential roles for these genes in embryonic development, organogenesis, and neuronal differentiation, which could be relevant to the differences between E18 and E8.
